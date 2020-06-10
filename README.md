@@ -57,7 +57,7 @@ chmod 600 ~/x2go/x2go-key
 Run the script as the followings. This will pull the Docker image and run it.
 
 ```
-docker run -it -d -p 2222:22 --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --tmpfs /tmp --name=x2go docker-x2go:latest
+docker run -it -d -p 2222:22 --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --tmpfs /tmp --shm-size=1g --name=x2go docker-x2go:latest
 ```
 
 ## Connect to the the X2Go Server
@@ -85,3 +85,7 @@ Double-click on the session panel to connect.
 * Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
 * Disable screensaver or set your a password to the docker user
 * [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
+* For snapd you might want to try adding the following arguments on docker run (untested) - [ogra1 snapd-docker](https://github.com/ogra1/snapd-docker/blob/master/build.sh):
+```
+--device=/dev/fuse --security-opt apparmor:unconfined --security-opt seccomp:unconfined -v /lib/modules:/lib/modules:ro
+```
