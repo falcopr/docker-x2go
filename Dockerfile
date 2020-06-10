@@ -14,7 +14,7 @@ ENV PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin' \
 RUN pacman -Sy && \
     pacman -S openssh x2goserver nxagent terminator \
     firefox chromium mate mate-extra sudo \
-    htop git nano code dotnet-sdk nodejs gimp p7zip inkscape blender --noconfirm
+    htop git nano code dotnet-sdk nodejs gimp p7zip inkscape midori --noconfirm
 
 RUN mkdir -p /var/run/sshd && \
     sed -i 's/^#X11Forwarding.*/X11Forwarding yes/' /etc/ssh/sshd_config && \
