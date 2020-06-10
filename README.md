@@ -74,13 +74,13 @@ Double-click on the session panel to connect.
 
 ## Known Problems
 * Websites crash on firefox and chromium
-** To prevent this call chromium with the parameter [--disable-dev-shm-usage](https://stackoverflow.com/questions/56218242/headless-chromium-on-docker-fails) preventing out of memory errors
-** Alternatively call --shm-size=1g when using docker run to increase memory
-** The last alternative is to use midori as browser alternative
+    * To prevent this call chromium with the parameter [--disable-dev-shm-usage](https://stackoverflow.com/questions/56218242/headless-chromium-on-docker-fails) preventing out of memory errors
+    * Alternatively call --shm-size=1g when using docker run to increase memory
+    * The last alternative is to use midori as browser alternative
 * Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
 * Disable screensaver or set your a password to the docker user or else you can use your x2go session anymore
 * 3D programs like blender do not work
-** [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
+    * [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
 * For snapd you might want to try adding the following arguments on docker run (untested) - [ogra1 snapd-docker](https://github.com/ogra1/snapd-docker/blob/master/build.sh):
 ```
 --device=/dev/fuse --security-opt apparmor:unconfined --security-opt seccomp:unconfined -v /lib/modules:/lib/modules:ro
