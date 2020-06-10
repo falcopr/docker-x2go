@@ -1,21 +1,20 @@
-FROM ubuntu
-MAINTAINER Tatsuya Kawano
+FROM ubuntu:focal
+MAINTAINER FALCO PRESCHER
 
-# Please change this value to force the builders at Quay.io/Docker Hub
-# to omit the cached Docker images. This will have the same effect to
-# adding `--no-cache` to `docker build` command.
-#
-ENV DOCKERFILE_UPDATED 2017-04-02
-
-RUN (apt-get update && \
-     apt-get install -y software-properties-common && \
+RUN (apt update && \
+     apt install -y software-properties-common && \
+     add-apt-repository universe && \
+     add-apt-repository multiverse && \
+     add-apt-repository restricted && \
      add-apt-repository -y ppa:x2go/stable && \
-     apt-get update && \
-     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-         x2goserver x2goserver-xsession ttf-dejavu fonts-ipafont-gothic \
-         openbox obconf obmenu conky nitrogen \
+     apt update && \
+     # Removing snapd since its not working properly inside a container
+    #  apt purge snapd && \
+     DEBIAN_FRONTEND=noninteractive apt install -y \
+         x2goserver x2goserver-xsession \
+         mate-desktop-environment-extras \
          sudo rxvt-unicode-256color \
-         firefox emacs)
+         firefox terminator git htop curl nano)
 
 RUN (mkdir -p /var/run/sshd && \
      sed -ri 's/UseDNS yes/#UseDNS yes/g' /etc/ssh/sshd_config && \
@@ -37,7 +36,7 @@ RUN chmod 440 /etc/sudoers.d/999-sudoers-docker
 ADD ./start-sshd.sh /root/start-sshd.sh
 RUN chmod 744 /root/start-sshd.sh
 
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+RUN ln -sf /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 EXPOSE 22
 ENTRYPOINT ["/root/start-sshd.sh"]

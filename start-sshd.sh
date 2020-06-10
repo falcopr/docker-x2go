@@ -13,7 +13,7 @@ if [ ! -f $KEYFILE ]; then
     cat $KEYFILE.pub >> ${USER_HOME}/.ssh/authorized_keys
 fi
 
-echo "== Use this private key to log in =="
+echo "== Use this private key to log in with the user docker=="
 cat $KEYFILE
 
 # Start sshd

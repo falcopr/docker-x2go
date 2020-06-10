@@ -1,16 +1,18 @@
 # docker-x2go
 
 Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock
-
-[![Docker Repository on Quay.io](https://quay.io/repository/tatsuya6502/x2go/status "Docker Repository on Quay.io")](https://quay.io/repository/tatsuya6502/x2go)
+Forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
 
 - X2Go Server
 - Firefox
-- Emacs
 - rxvt Terminal Emulator
-- Japanese fonts
-- Ubuntu 16.04 LTS base image
+- Ubuntu 20.04 LTS base image
+- MATE
 
+## Build Image
+```
+docker build --tag docker-x2go:latest .
+```
 
 ## Running the X2Go Server Container
 
@@ -18,8 +20,7 @@ Run the script as the followings. This will pull the Docker image
 and run it.
 
 ```
-$ cd docker-x2go
-$ ./run.sh
+docker run -it -d -p 2222:22 --name=x2go docker-x2go:latest
 ```
 
 It will generate an ssh key at start up and add it to
@@ -46,8 +47,8 @@ Save the key to your local PC.
 
 ```
 # On your local PC
-$ vi ~/x2go/x2go-key
-$ chmod 600 ~/x2go/x2go-key
+vi ~/x2go/x2go-key
+chmod 600 ~/x2go/x2go-key
 ```
 
 Start X2Go Client on you PC. Choose **Session** -> **New Session**,
@@ -60,15 +61,7 @@ and enter the following information to the **Session** tab.
   * Use RSA/DSA key for ssh connection: `~/x2go/x2go-key`
 
 - **Session Type**
-  * Choose **Custom desktop** and enter `openbox-session` to
+  * Choose **Custom desktop** and enter `MATE` to
     the **Command** field.
 
 Double-click on the session panel to connect.
-
-
-## Stopping the x2go server
-
-```
-$ docker stop x2go
-$ docker rm x2go
-```
