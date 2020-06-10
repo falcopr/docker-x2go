@@ -24,7 +24,7 @@ sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
 docker build --tag docker-x2go:latest .
 ```
 
-It will generate an ssh key at start up and add it to
+It will generate an ssh key at build time and add it to
 `/home/docker/.ssh/authorized_keys` in the container.
 
 ```
@@ -36,12 +36,6 @@ T72VqyNeFTqywuuA2tgF8ZhV1UC+Qxi0EmxoeRQAnt62EUerj1HcVm+MzveT+VWa
 ...
 ...
 -----END RSA PRIVATE KEY-----
-```
-
-If the key was not printed, try this command:
-
-```
-$ docker logs x2go
 ```
 
 Save the key to your local PC.
