@@ -11,7 +11,7 @@ Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock also forke
 - MATE
 - systemd (yes, this container runs all the services of arch linux which also allows easier logging)
 
-**Beware: This is not a secure container when run like described because it has elevated privileges.**
+**Beware: This is not a secure container when run like described below because it has elevated privileges.**
 
 ## Prerequisites
 
