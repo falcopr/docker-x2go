@@ -4,8 +4,8 @@ Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock
 Forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
 
 - X2Go Server
-- Midori
-- Code
+- Chromium
+- VS Code
 - Nodejs
 - .NET Core
 - MATE
@@ -77,7 +77,11 @@ and enter the following information to the **Session** tab.
 Double-click on the session panel to connect.
 
 ## Known Problems
-- Video streams crash on firefox, use chromium instead
-- Large websites crash on firefox and chrome, instead use midori
-- 3D programs like blender do not work
-- Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
+* Video streams crash on firefox, use chromium instead
+* For chromium to not crash call chromium with the parameter [--disable-dev-shm-usage](https://stackoverflow.com/questions/56218242/headless-chromium-on-docker-fails) preventing out of memory errors
+* Alternatively call --shm-size=1g when using docker run to increase memory
+* Large websites crash on firefox and chrome, instead use midori
+* 3D programs like blender do not work
+* Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
+* Disable screensaver or set your a password to the docker user
+* [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
