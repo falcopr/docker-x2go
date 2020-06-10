@@ -1,7 +1,6 @@
 # docker-x2go
 
-Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock
-Forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
+Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock also forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
 
 - X2Go Server
 - Chromium
