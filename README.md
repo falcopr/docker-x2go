@@ -2,13 +2,16 @@
 
 Remote desktop [X2Go Server](http://wiki.x2go.org/doku.php) in a dock also forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
 
+- Arch Linux Base Image
 - X2Go Server
-- Chromium
+- Firefox & Chromium
 - VS Code
-- Nodejs
+- nodejs
 - .NET Core
 - MATE
-- Arch Linux Base Image
+- systemd (yes, this container runs all the services of arch linux which also allows easier logging)
+
+Beware: This is not a secure container when run like described because it has elevated privileges.
 
 ## Prerequisites
 
@@ -76,7 +79,7 @@ Double-click on the session panel to connect.
 * Large websites crash on firefox and chrome, instead use midori
 * 3D programs like blender do not work
 * Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
-* Disable screensaver or set your a password to the docker user
+* Disable screensaver or set your a password to the docker user or else you can use your x2go session anymore
 * [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
 * For snapd you might want to try adding the following arguments on docker run (untested) - [ogra1 snapd-docker](https://github.com/ogra1/snapd-docker/blob/master/build.sh):
 ```
