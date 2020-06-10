@@ -5,22 +5,20 @@ Forked from [tatsuya6502/x2go](https://github.com/tatsuya6502/docker-x2go)
 
 - X2Go Server
 - Firefox
-- rxvt Terminal Emulator
-- Ubuntu 20.04 LTS base image
 - MATE
+- Arch Linux Base Image
+
+## Prerequisites
+
+In the docker host run the following to allow systemd to start (for e.g. relevant for boot2docker)
+```
+sudo mkdir /sys/fs/cgroup/systemd
+sudo mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
+```
 
 ## Build Image
 ```
 docker build --tag docker-x2go:latest .
-```
-
-## Running the X2Go Server Container
-
-Run the script as the followings. This will pull the Docker image
-and run it.
-
-```
-docker run -it -d -p 2222:22 --name=x2go docker-x2go:latest
 ```
 
 It will generate an ssh key at start up and add it to
@@ -51,6 +49,16 @@ vi ~/x2go/x2go-key
 chmod 600 ~/x2go/x2go-key
 ```
 
+## Running the X2Go Server Container
+
+Run the script as the followings. This will pull the Docker image and run it.
+
+```
+docker run -it -d -p 2222:22 --cap-add SYS_ADMIN -v /sys/fs/cgroup:/sys/fs/cgroup:ro --tmpfs /run --tmpfs /run/lock --tmpfs /tmp --name=x2go docker-x2go:latest
+```
+
+## Connect to the the X2Go Server
+
 Start X2Go Client on you PC. Choose **Session** -> **New Session**,
 and enter the following information to the **Session** tab.
 
@@ -61,7 +69,6 @@ and enter the following information to the **Session** tab.
   * Use RSA/DSA key for ssh connection: `~/x2go/x2go-key`
 
 - **Session Type**
-  * Choose **Custom desktop** and enter `MATE` to
-    the **Command** field.
+  * Choose **Environment** `MATE`.
 
 Double-click on the session panel to connect.
