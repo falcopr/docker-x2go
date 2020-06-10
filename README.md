@@ -72,3 +72,6 @@ and enter the following information to the **Session** tab.
   * Choose **Environment** `MATE`.
 
 Double-click on the session panel to connect.
+
+## Known Problems
+- Video streams crash on firefox, use chromium instead
