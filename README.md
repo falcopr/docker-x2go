@@ -78,3 +78,6 @@ Double-click on the session panel to connect.
 
 ## Known Problems
 - Video streams crash on firefox, use chromium instead
+- Large websites crash on firefox and chrome, instead use midori
+- 3D programs like blender do not work
+- Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
