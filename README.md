@@ -77,6 +77,10 @@ Double-click on the session panel to connect.
     * To prevent this call chromium with the parameter [--disable-dev-shm-usage](https://stackoverflow.com/questions/56218242/headless-chromium-on-docker-fails) preventing out of memory errors
     * Alternatively call --shm-size=1g when using docker run to increase memory
     * The last alternative is to use midori as browser alternative
+* [To use Docker on the docker host inside a container add the following volume binding on docker run](http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/)
+```
+-v /var/run/docker.sock:/var/run/docker.sock
+```
 * Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
 * Disable screensaver or set your a password to the docker user or else you can use your x2go session anymore
 * 3D programs like blender do not work
