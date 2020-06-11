@@ -82,7 +82,7 @@ Double-click on the session panel to connect.
 -v /var/run/docker.sock:/var/run/docker.sock
 ```
 * Node 14+ does not work, instead use nodejs-lts-eribium (12.17)
-* Disable screensaver or set your a password to the docker user or else you can use your x2go session anymore
+* Disable screensaver or set your a password to the docker user or else you cant use your x2go session anymore when screensaver locks the screen
 * 3D programs like blender do not work
     * [GLX 1.4 workaround - Recompile drivers](https://wiki.x2go.org/doku.php/wiki:development:glx-xlib-workaround)
 * For snapd you might want to try adding the following arguments on docker run (untested) - [ogra1 snapd-docker](https://github.com/ogra1/snapd-docker/blob/master/build.sh):
