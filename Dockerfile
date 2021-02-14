@@ -12,7 +12,7 @@ ENV PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin' \
     TZ='UTC'
 
 RUN pacman -Sy && \
-    pacman -S openssh x2goserver nxagent terminator \
+    pacman -S glibc lib32-glibc openssh x2goserver nxagent terminator \
     firefox chromium mate mate-extra sudo \
     htop git nano code dotnet-sdk dotnet-host dotnet-runtime aspnet-runtime nodejs-lts-erbium npm gimp p7zip inkscape midori vlc screen --noconfirm
 
