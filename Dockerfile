@@ -1,7 +1,7 @@
-FROM archlinux:20200605
+FROM archlinux:latest
 MAINTAINER FALCO PRESCHER
 
-ENV BUILD_VERSION='20200610_1450'
+ENV BUILD_VERSION='20210214_1210'
 
 ENV PATH='/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin' \
     LANG='en_US.UTF-8' \
