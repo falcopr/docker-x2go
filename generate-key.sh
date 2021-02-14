@@ -10,9 +10,9 @@ KEYGEN=/usr/bin/ssh-keygen
 KEYFILE=${KEY_OUTDIR}/ssh_host_rsa_key
 
 if [ ! -f $KEYFILE ]; then
-    $KEYGEN -q -A
+    $KEYGEN -q -t rsa -N "" -f $KEYFILE
     ls ${KEY_OUTDIR}
-    cp ${KEY_OUTDIR}/ssh_host_rsa_key ${USER_HOME}/.ssh/
+    cp $KEYFILE ${USER_HOME}/.ssh/
     cat $KEYFILE.pub >> ${USER_HOME}/.ssh/authorized_keys
 fi
 
